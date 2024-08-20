@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>WOFOST Simulation Results | ESFSim Web Dashboard Demo</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight,alt,wide.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight,alt,wide.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/_esm.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/_esm.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/_esm.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/_esm.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/_esm.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/_esm.js">
+<link rel="icon" href="./_file/ESF-Favicon.dbdccf45.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.js";
+import {registerFile} from "./_observablehq/stdlib.js";
+
+registerFile("./data/toby_ml_data.csv", {"name":"./data/toby_ml_data.csv","mimeType":"text/csv","path":"./_file/data/toby_ml_data.3e2bd985.csv","lastModified":1724140582624});
+registerFile("./data/wofost_2023.csv", {"name":"./data/wofost_2023.csv","mimeType":"text/csv","path":"./_file/data/wofost_2023.7774d8cf.csv","lastModified":1724140582624});
+registerFile("./data/wofost_2024.csv", {"name":"./data/wofost_2024.csv","mimeType":"text/csv","path":"./_file/data/wofost_2024.eb6c8044.csv","lastModified":1724140582624});
+
+define({id: "0d769c28", inputs: ["FileAttachment"], outputs: ["csv_output","output_remote","output","simulated_data_threshold"], body: async (FileAttachment) => {
+// Load output Data
+// var output = await FileAttachment("data/toby_ml_data.csv").csv({typed: true, array: true});
+
+// // Reformat output Data from CSV to JS Object
+// const header_rows = output.slice(1,2);
+// const data_rows = output.slice(3, output.length);
+// // output = data_rows.map((row) => Object.fromEntries(row.map((d, i) => [header_rows[0][i], d])));
+
+// Load Toby's ML Data
+var csv_output = await FileAttachment("./data/toby_ml_data.csv").csv({typed: true});
+console.log("CSV Row:");
+console.log(csv_output[0]);
+
+// Load data from server at "localhost:3000/table/wofost_2023" using `fetch`
+// const response = await fetch("http://localhost:3000/table/toby_ml_data");
+// let output_remote = await response.json();
+let output_remote = csv_output;  // For demo, use the CSV instead of backend
+
+// Reformat the data from the server for proper dates
+output_remote = output_remote.map(d => {
+  d.datetime = new Date(d.datetime);
+  return ({
+    ...d, // Spread operator to keep all other columns
+    // Optionally, you can remove the original date and time columns:
+    // date: undefined,
+    // time: undefined
+  })
+});
+console.log("Remote Row:");
+console.log(output_remote[0]);
+
+let output = output_remote;
+
+// Sort the data
+output = output.sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
+
+// Filter the data to date range
+/*output = output.filter(d => {
+  return d["datetime"] >= new Date("2020-01-01T00:00:00Z") && d["datetime"] <= new Date("2024-11-30T23:59:59Z");
+});*/
+
+// Set a "simulated" data cutoff threshold
+const simulated_data_threshold = new Date("2023-11-05T00:00:00Z");
+
+// Filter out data after the simulated data threshold in a separate column
+output = output.map(d => {
+  if (new Date(d.datetime) > simulated_data_threshold) {
+    return ({
+      ...d,
+      "Sim Actual ET": null,
+    })
+  } else {
+    return ({
+      ...d,
+      "Sim Actual ET": d["Actual ET"],
+    })
+  }
+});
+return {csv_output,output_remote,output,simulated_data_threshold};
+}});
+
+define({id: "8adbc659", inputs: ["FileAttachment"], outputs: ["wofost_2023"], body: async (FileAttachment) => {
+// Load data from server at "localhost:3000/table/wofost_2023" using `fetch`
+// const response_wofost_2023 = await fetch("http://localhost:3000/table/wofost_2023");
+// let wofost_2023 = await response_wofost_2023.json();
+let wofost_2023 = await FileAttachment("./data/wofost_2023.csv").csv({typed: true}); // For demo, use the CSV instead of backend
+
+// Reformat the data from the server
+wofost_2023 = wofost_2023.map(d => {
+  const date = d.day;
+  // const time = d.time;
+
+  // Format the date into ISO format
+  const iso_date = new Date(date).toISOString().split('T')[0];
+
+  // Format the date and time into a single datetime column
+  // You can use the `new Date()` constructor to create a new Date object
+  // by passing in a string in the format "YYYY-MM-DDTHH:MM:SS"
+  const datetime = new Date(`${iso_date}T00:00:00`);
+
+  return ({
+    datetime: datetime, // Create a new Date object
+    ...d, // Spread operator to keep all other columns
+    // Optionally, you can remove the original date and time columns:
+    // date: undefined,
+    // time: undefined
+  })
+});
+return {wofost_2023};
+}});
+
+define({id: "f5b908a5", inputs: ["FileAttachment"], outputs: ["wofost_2024"], body: async (FileAttachment) => {
+// const response_wofost_2024 = await fetch("http://localhost:3000/table/wofost_2024");
+// let wofost_2024 = await response_wofost_2024.json();
+let wofost_2024 = await FileAttachment("./data/wofost_2024.csv").csv({typed: true}); // For demo, use the CSV instead of backend
+
+// Reformat the data from the server
+wofost_2024 = wofost_2024.map(d => {
+  const date = d.day;
+  // const time = d.time;
+
+  // Format the date into ISO format
+  const iso_date = new Date(date).toISOString().split('T')[0];
+
+  // Format the date and time into a single datetime column
+  // You can use the `new Date()` constructor to create a new Date object
+  // by passing in a string in the format "YYYY-MM-DDTHH:MM:SS"
+  const datetime = new Date(`${iso_date}T00:00:00`);
+
+  return ({
+    datetime: datetime, // Create a new Date object
+    ...d, // Spread operator to keep all other columns
+    // Optionally, you can remove the original date and time columns:
+    // date: undefined,
+    // time: undefined
+  })
+});
+return {wofost_2024};
+}});
+
+define({id: "7ee2efca", inputs: ["wofost_2023","wofost_2024"], outputs: ["wofost_combined"], body: (wofost_2023,wofost_2024) => {
+// Combine wofoost_2023 and wofoost_2024 with extra column for year
+const wofost_combined = wofost_2023.map(d => ({...d, year: "2023"})).concat(wofost_2024.map(d => ({...d, year: "2024"})));
+console.log(wofost_combined);
+return {wofost_combined};
+}});
+
+define({id: "c5559102", inputs: ["Plot","wofost_combined","width","display"], body: async (Plot,wofost_combined,width,display) => {
+display(await(
+Plot.plot({
+  marks: [
+    Plot.tickX(wofost_combined, {
+      y: "year",
+      x: "datetime",
+      strokeWidth: 0.2,
+      tip: true,
+    })
+  ],
+  color: {
+    legend: true,
+    scheme: "warm"
+  },
+  width: Math.max(width, 1000),
+  height: 200,
+  marginLeft: 100,
+  y: {
+    type: "band", // Needed to squelch warning about y-axis values looking like numbers but actually being strings
+    reverse: true
+  },
+  title: "Simulation Dates",
+  caption: "Dates for which we have simulated results. Each y-axis category represents a growing season simulation."
+})
+))
+}});
+
+define({id: "f7d81724", inputs: ["Plot","wofost_2023","width","display"], body: async (Plot,wofost_2023,width,display) => {
+display(await(
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2023, { x: "datetime", y: "LAI", stroke: "SM", tip: true })
+  ],
+  x: {domain: [new Date("2023-01-01"), new Date("2023-12-31")], grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. Leaf Area Index (LAI) and Soil Moisture (SM) for 2023",
+  caption: "Leaf Area Index (LAI) and Soil Moisture (SM) simulated over a growing season using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "5ef762ef", inputs: ["Plot","wofost_2024","width","display"], body: async (Plot,wofost_2024,width,display) => {
+display(await(
+Plot.plot({
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2024, { x: "datetime", y: "LAI", stroke: "SM", tip: true })
+  ],
+  x: {domain: [new Date("2024-01-01"), new Date("2024-12-31")], grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. Leaf Area Index (LAI) and Soil Moisture (SM) for 2024",
+  caption: "Leaf Area Index (LAI) and Soil Moisture (SM) simulated over a growing season using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "a6d4e2a5", inputs: ["Plot","wofost_2023","width","display"], body: async (Plot,wofost_2023,width,display) => {
+display(await(
+Plot.plot({
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  y: { label: "cm/day" },
+  marks: [
+    Plot.dot(wofost_2023, { x: "datetime", y: "TRA", stroke: "SM", tip: true })
+  ],
+  x: {domain: [new Date("2023-01-01"), new Date("2023-12-31")], grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. Crop Transpiration and Soil Moisture for 2023",
+  caption: "Crop Transpiration excluding soil evaporation (TRA) and Soil Moisture (SM) simulated over a growing season using the WOFOST simulator. This indicates the amount of water that the plant obtains from the soil and subsequently transpires. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "6073603c", inputs: ["Plot","wofost_2024","width","display"], body: async (Plot,wofost_2024,width,display) => {
+display(await(
+Plot.plot({
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  y: { label: "cm/day" },
+  marks: [
+    Plot.dot(wofost_2024, { x: "datetime", y: "TRA", stroke: "SM", tip: true })
+  ],
+  x: {domain: [new Date("2024-01-01"), new Date("2024-12-31")], grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. Crop Transpiration and Soil Moisture for 2024",
+  caption: "Crop Transpiration excluding soil evaporation (TRA) and Soil Moisture (SM) simulated over a growing season using the WOFOST simulator. This indicates the amount of water that the plant obtains from the soil and subsequently transpires. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "bba62007", inputs: ["Plot","wofost_2023","width","display"], body: async (Plot,wofost_2023,width,display) => {
+display(await(
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2023, { x: "datetime", y: "SM", stroke: "LAI", tip: true }),
+  ],
+  x: {domain: [new Date("2023-01-01"), new Date("2023-12-31")], grid: true},
+  y: {grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. Soil Moisture for 2023",
+  caption: "Soil Moisture (SM) along with the Leaf Area Index (LAI) simulated over a growing season in 2023 using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "6202518d", inputs: ["Plot","wofost_2024","width","display"], body: async (Plot,wofost_2024,width,display) => {
+display(await(
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2024, { x: "datetime", y: "SM", stroke: "LAI", tip: true }),
+  ],
+  x: {domain: [new Date("2024-01-01"), new Date("2024-12-31")], grid: true},
+  y: {grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. Soil Moisture for 2024",
+  caption: "Soil Moisture (SM) along with the Leaf Area Index (LAI) simulated over a growing season in 2024 using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "d473fdf4", inputs: ["Plot","wofost_2023","width","display"], body: async (Plot,wofost_2023,width,display) => {
+display(await(
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2023, { x: "datetime", y: "WWLOW", stroke: "LAI", tip: true }),
+  ],
+  x: {domain: [new Date("2023-01-01"), new Date("2023-12-31")], grid: true},
+  y: {grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. WWLOW and Leaf Area Index (LAI) for 2023",
+  caption: "Amount of water available to the plant along with the Leaf Area Index simulated over a growing season in 2023 using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "ce678fe1", inputs: ["Plot","wofost_2024","width","display"], body: async (Plot,wofost_2024,width,display) => {
+display(await(
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2024, { x: "datetime", y: "WWLOW", stroke: "LAI", tip: true }),
+  ],
+  x: {domain: [new Date("2024-01-01"), new Date("2024-12-31")], grid: true},
+  y: {grid: true},
+  width: Math.max(width, 1200),
+  title: "Date vs. WWLOW and Leaf Area Index (LAI) for 2024",
+  caption: "Amount of water available to the plant along with the Leaf Area Index simulated over a growing season in 2024 using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+))
+}});
+
+define({id: "6564131f", inputs: ["Plot","wofost_2023","display"], body: async (Plot,wofost_2023,display) => {
+display(await(
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2023, { x: "SM", y: "WWLOW", tip: true }),
+  ],
+  x: {grid: true},
+  y: {grid: true},
+  width: 600,
+  height: 600,
+  title: "SM vs. WWLOW for 2023",
+})
+))
+}});
+
+define({id: "37bb14e2", inputs: ["Plot","wofost_2024","display"], body: async (Plot,wofost_2024,display) => {
+display(await(
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2024, { x: "SM", y: "WWLOW", tip: true }),
+  ],
+  x: {grid: true},
+  y: {grid: true},
+  width: 600,
+  height: 600,
+  title: "SM vs. WWLOW for 2024",
+})
+))
+}});
+
+define({id: "7fd99bd4", inline: true, inputs: ["resize","wofost_2023_table","display"], body: async (resize,wofost_2023_table,display) => {
+display(await(
+resize((width) => (wofost_2023_table))
+))
+}});
+
+define({id: "16ba5427", inputs: ["Inputs","wofost_2023","view"], outputs: ["wofost_2023_table"], body: (Inputs,wofost_2023,view) => {
+// Show Table
+const wofost_2023_table = Inputs.table(wofost_2023, {});
+
+view(wofost_2023_table);
+return {wofost_2023_table};
+}});
+
+define({id: "ba01b71a", inline: true, inputs: ["resize","wofost_2024_table","display"], body: async (resize,wofost_2024_table,display) => {
+display(await(
+resize((width) => (wofost_2024_table))
+))
+}});
+
+define({id: "0c5b2df8", inputs: ["Inputs","wofost_2024","view","wofost_2023_table"], outputs: ["wofost_2024_table"], body: (Inputs,wofost_2024,view,wofost_2023_table) => {
+// Show Table
+const wofost_2024_table = Inputs.table(wofost_2024, {});
+
+view(wofost_2023_table);
+return {wofost_2024_table};
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">ESFSim Web Dashboard Demo</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link observablehq-link-active"><a href="./sim_results">WOFOST Simulation Results</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#compare-lai">Compare LAI</a></li>
+<li class="observablehq-secondary-link"><a href="#crop-transpiration">Crop Transpiration</a></li>
+<li class="observablehq-secondary-link"><a href="#compare-soil-moisture">Compare Soil Moisture</a></li>
+<li class="observablehq-secondary-link"><a href="#compare-wwlow">Compare WWLOW</a></li>
+<li class="observablehq-secondary-link"><a href="#tables">Tables</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<!-- Load and transform the data -->
+<div id="cell-0d769c28" class="observablehq observablehq--block"></div>
+<h1 id="wofost-simulation-results" tabindex="-1"><a class="observablehq-header-anchor" href="#wofost-simulation-results">WOFOST Simulation Results</a></h1>
+<!-- Load the WOFOST 2023 data from the server -->
+<div id="cell-8adbc659" class="observablehq observablehq--block"></div>
+<!-- Load the WOFOST 2024 data from the server -->
+<div id="cell-f5b908a5" class="observablehq observablehq--block"></div>
+<!-- Timeline Showing data availability from simulations -->
+<div id="cell-7ee2efca" class="observablehq observablehq--block"></div>
+<div id="cell-c5559102" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<hr>
+<h2 id="compare-lai" tabindex="-1"><a class="observablehq-header-anchor" href="#compare-lai">Compare LAI</a></h2>
+<!-- Display Plots -->
+<div id="cell-f7d81724" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<!-- Display Plots -->
+<div id="cell-5ef762ef" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<hr>
+<h2 id="crop-transpiration" tabindex="-1"><a class="observablehq-header-anchor" href="#crop-transpiration">Crop Transpiration</a></h2>
+<div id="cell-a6d4e2a5" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<div id="cell-6073603c" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<hr>
+<h2 id="compare-soil-moisture" tabindex="-1"><a class="observablehq-header-anchor" href="#compare-soil-moisture">Compare Soil Moisture</a></h2>
+<div id="cell-bba62007" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<div id="cell-6202518d" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<hr>
+<h2 id="compare-wwlow" tabindex="-1"><a class="observablehq-header-anchor" href="#compare-wwlow">Compare WWLOW</a></h2>
+<!-- Display Plots -->
+<div id="cell-d473fdf4" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<div id="cell-ce678fe1" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<br>
+<h3 id="soil-moisture-vs.-wwlow" tabindex="-1"><a class="observablehq-header-anchor" href="#soil-moisture-vs.-wwlow">Soil Moisture vs. WWLOW</a></h3>
+<div id="cell-6564131f" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<div id="cell-37bb14e2" class="observablehq observablehq--block"><span class="observablehq-loading"></span></div>
+<!--
+---
+## Compare Yield
+
+```js
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2023, { x: "datetime", y: "TWSO", stroke: "LAI", tip: true }),
+  ],
+  x: {domain: [new Date("2023-01-01"), new Date("2023-12-31")], grid: true},
+  y: {grid: true},
+  title: "Date vs. Yield (TWSO) for 2023",
+  caption: "The total weight in storage organs (i.e., the yield) in the plants simulated over a growing season in 2023 using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+```
+
+```js
+Plot.plot({
+  r: {range: [3, 15]}, // generate slightly smaller dots
+  color: {
+    legend: true,
+    scheme: "Magma",
+  },
+  marks: [
+    Plot.dot(wofost_2024, { x: "datetime", y: "TWSO", stroke: "LAI", tip: true }),
+  ],
+  x: {domain: [new Date("2024-01-01"), new Date("2024-12-31")], grid: true},
+  y: {grid: true},
+  title: "Date vs. Yield (TWSO) for 2024",
+  caption: "The total weight in storage organs (i.e., the yield) in the plants simulated over a growing season in 2024 using the WOFOST simulator. The crop used is Pigeon Pea."
+})
+```
+-->
+<h1 id="tables" tabindex="-1"><a class="observablehq-header-anchor" href="#tables">Tables</a></h1>
+<br>
+<h2>WOFOST 2023 Table</h2>
+<div class="grid grid-cols-1">
+  <div class="card"><span id="cell-7fd99bd4"><span class="observablehq-loading"></span></span></div>
+</div>
+<!-- Display the data in a table -->
+<div id="cell-16ba5427" class="observablehq observablehq--block"></div>
+<br>
+<h2>WOFOST 2024 Table</h2>
+<div class="grid grid-cols-1">
+  <div class="card"><span id="cell-ba01b71a"><span class="observablehq-loading"></span></span></div>
+</div>
+<!-- Display the data in a table -->
+<div id="cell-0c5b2df8" class="observablehq observablehq--block"></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./"><span>ESFSim Web Dashboard Demo</span></a></nav>
+<div>Part of the <a href="https://sites.google.com/view/esfsim" target="_blank" rel="noopener noreferrer">ESFSim Project</a> in the <a href="https://padsys.org/" target="_blank" rel="noopener noreferrer">PADSYS Lab @ UC Merced</a>.</div>
+</footer>
+</div>
