@@ -1,0 +1,63 @@
+name: Deploy
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main # Set the branch name to trigger the deployment
+  schedule:
+    - cron: "15 10 * * *" # Set the time to trigger the deployment
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.4.1" # Specify the Node.js version you want to use
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      # Prepare `dist` as a tar archive for `upload-pages-artifact` action
+      - name: Prepare dist as a tar archive
+        run: tar -czf dist.tar.gz dist
+
+      # Upload the `dist` directory as a tar archive
+      - name: Upload dist as a tar archive
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist.tar.gz
+          path: ./dist.tar.gz
+
+  # Deploy to GitHub Pages
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download dist.tar.gz
+        uses: actions/download-artifact@v2
+        with:
+          name: dist.tar.gz
+
+      - name: Extract dist.tar.gz
+        run: tar -xzf dist.tar.gz
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
